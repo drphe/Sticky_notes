@@ -1,0 +1,82 @@
+<html style="padding: 0; margin: 0">
+<head>
+    <title>Install</title>
+    <script src="common/commonLibraries/sentry.4.5.3.js"></script>
+    <script src="common/commonLibraries/amplitude-4.5.2.js"></script>
+    <script src="common/commonLibraries/ga.js"></script>
+
+    <script src="common/commonLibraries/eventEmitter.js"></script>
+    <script src="common/commonHelpers/utility.js"></script>
+    <script src="common/commonConstants.js"></script>
+    <script src="common/commonHelpers/defaultValuesHelper.js"></script>
+    <script src="background/backgroundConstants.js"></script>
+    <script src="background/init.js"></script>
+    <script src="background/backgroundHelpers/migrationHelper.js"></script>
+    <script src="background/backgroundHelpers/trackingHelper.js"></script>
+    <script src="background/backgroundHelpers/indexdbHelper.js"></script>
+    <script src="background/backgroundHelpers/appDataHelper.js"></script>
+    <script src="background/backgroundHelpers/localStorageHelper.js"></script>
+    <script src="install.js"></script>
+    <style>
+        body{
+            font-family: Lato, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+        }
+        header{
+            height: 40px;
+            background-color: #2B47AA;
+        }
+        .install-app-container{
+
+        }
+        .text-container{
+           text-align: center;
+            margin-top: 100px;
+        }
+
+        .hide{
+            display: none;
+        }
+
+        .on-error-container{
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+            margin-top: 50px;
+            line-height: 24px;
+            font-size: 16px;
+
+        }
+
+        ul{
+            text-align: left;
+        }
+    </style>
+</head>
+<body style="padding: 0; margin: 0">
+<div class="install-app-container">
+    <header></header>
+    <div id="install-text" class="text-container">
+        <div class="text">
+            <h2>Installing Sticky Notes ...</h2>
+        </div>
+    </div>
+
+    <div id="on-error-container" class="on-error-container hide">
+        <div class="content">
+            <p>
+                There was <b>some error installing Sticky Notes.</b>.
+                It could be because of one of the following reasons.
+            </p>
+            <ul>
+                <li>Browser couldn't allocate storage space because your disk is almost full.</li>
+                <li>Insufficient permissions to install app.</li>
+                <li>There was some technical glitch. You can uninstall it by clicking on the app icon. And then Reinstall it. </li>
+                <li>If you want to contact support, Just mail us at <a href="mailto:support@ukiv.com">support@ukiv.com</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<html style="padding: 0; margin: 0">
+<head>
+    <title>Restore</title>
+    <script src="common/commonLibraries/sentry.4.5.3.js"></script>
+    <script src="common/commonLibraries/eventEmitter.js"></script>
+    <script src="common/commonHelpers/utility.js"></script>
+    <script src="common/commonConstants.js"></script>
+    <script src="popup.js"></script>
+    <style>
+
+        header{
+            height: 40px;
+            background-color: #2B47AA;
+        }
+        .restore-data-container{
+            padding-top: 50px;
+            text-align: center;
+        }
+        #textarea{
+            margin-top: 50px;
+            width: 600px;
+            height: auto;
+            min-height: 200px;
+            background-color: yellow;
+            display: inline-block;
+            border-radius: 4px;
+            color: #0a0a0a;
+            padding: 10px;
+            box-shadow: 0 0 4px 0px lightgray;
+            font-size: 14px;
+            outline: none;
+            border: 1px solid lightgray;
+        }
+
+        #install-error-container{
+            margin: 20px auto;
+            max-width: 600px;
+            font-size: 14px;
+            color: black;
+            text-align: center;
+            display: none;
+        }
+
+        .extension-link{
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            color: white;
+            background-color: blue;
+            margin: 0 5px;
+            border-radius: 4px;
+        }
+
+        .notes-container{
+            margin: auto;
+            width: 600px;
+            height: 400px;
+            background-color: lightgray;
+            display: flex;
+        }
+
+        .notes-container .left-side{
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .notes-container .note-tab{
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+            background-color: #415E9B;
+            color: white;
+            cursor: pointer;
+        }
+
+        .notes-container .note-tab:hover{
+            background-color: #243761;
+        }
+
+        .notes-container .right-side{
+            display: flex;
+            flex-grow: 1;
+        }
+
+        #right-side-textarea{
+            width: 100%;
+            border: 1px solid lightgray;
+            resize: none;
+            font-size: 14px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body style="padding: 0; margin: 0">
+<header></header>
+<div class="restore-data-container">
+    <div id="notes-container" class="notes-container">
+        <div class="left-side">
+            <div id="n-1-1" class="note-tab">
+                Note-1
+            </div>
+            <div id="n-1-2" class="note-tab">
+                Note-2
+            </div>
+            <div id="n-1-3" class="note-tab">
+                Note-3
+            </div>
+            <div id="n-2-1" class="note-tab">
+                Note-4
+            </div>
+            <div id="n-2-2" class="note-tab">
+                Note-5
+            </div>
+            <div id="n-2-3" class="note-tab">
+                Note-6
+            </div>
+            <div id="n-3-1" class="note-tab">
+                Note-7
+            </div>
+            <div id="n-3-2" class="note-tab">
+                Note-8
+            </div>
+            <div id="n-3-3" class="note-tab">
+                Note-9
+            </div>
+        </div>
+        <div class="right-side">
+            <textarea id="right-side-textarea" class="textarea" readonly="true"></textarea>
+        </div>
+    </div>
+<!--    <textarea id="textarea" placeholder="no old data before update to show"></textarea>-->
+    <div id="install-error-container">
+        <div>You can uninstall the extension and install again by clicking
+            <a class="extension-link" href="https://chrome.google.com/webstore/detail/sticky-notes-just-popped/plpdjbappofmfbgdmhoaabefbobddchk"> THIS LINK</a>
+            If you have any other query just email us at support@ukiv.com
+        </div>
+    </div>
+</div>
+<script src="restoredata.js"></script>
+</body>
+</html>
