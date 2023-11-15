@@ -9656,7 +9656,7 @@
               value: function() {
                 var t = this;
                 setTimeout((function() {
-                  t.state.userLocalData && t.state.userLocalData.installDate ? Utility.setPremiumBadgeTextAndIcon() : Utility.removePremiumBadgeTextAndIcon()
+                   Utility.setPremiumBadgeTextAndIcon()
                 }), 100)
               }
             }, {
@@ -9709,8 +9709,8 @@
                       n = l.height;
                     chrome.windows.create({
                       url: chrome.runtime.getURL("popuptab.html"),
-                      width: parseInt(o),
-                      height: parseInt(n + 25),
+                      width: parseInt(o+12),
+                      height: parseInt(n + 30),
                       focused: !0,
                       type: "popup",
                       left: parseInt((window.screen.width - o) / 2),
@@ -10812,13 +10812,13 @@
                 className: "tab-item"
               }, t("a", {
                 className: "link-white",
-                href: "https://fireant.vn/charts",
+                href: "https://youtube.com/",
                 target: "_blank"
               }, t("span", {
                 className: "icon-container help-icon"
               }), t("span", {
                 className: "text"
-              }, "Fireant")))), !l && t("div", {
+              }, "Youtube")))), !l && t("div", {
                 className: "lower-settings"
               }, t("span", {
                 className: "tab-item",
@@ -11483,11 +11483,17 @@
             key: "onClickDownloadNote",
             value: function() {
               var t = this,
-                e = "";
+                e = "", o = 550, n = 550;
               this.props.folderData.value.forEach((function(l) {
                 l.id == t.props.folderData.activeId && (e = l.value)
-              })), Utility.isExtension() && chrome.tabs.create({
-                url: chrome.runtime.getURL("download.html?noteId=" + this.props.note.id + "&folderName=" + e + "&action=download")
+              })), Utility.isExtension() && chrome.windows.create({
+                url: chrome.runtime.getURL("download.html") + "?noteId=" + this.props.note.id + "&folderName=" + e + "&action=download",
+		width: parseInt(o+12), 
+		height: parseInt(n + 30), 
+		focused: !0, 
+		type: "popup", 
+		left: parseInt((window.screen.width - o) / 2),
+		top: parseInt((window.screen.height - n) / 2)
               }), this.props.logToAmplitude(COMMONCONSTANTS.DOWNLOAD_NOTE_CLICK), TRACK({
                 category: COMMONCONSTANTS.NOTES,
                 action: COMMONCONSTANTS.DOWNLOAD_NOTE_CLICK,
@@ -13241,7 +13247,7 @@
           t[COMMONCONSTANTS.TOUR_SHOWN] = !0
         })), e.addStep({
           id: "folder-step",
-          text: "(1/4) <br /><h2>Folder Settings</h2>Every Folder has <u>3 notes</u>. You can hide or show these notes from here. <br /> <br />You can also change the folder name from here.  ",
+          text: "(1/3) <br /><h2>Folder Settings</h2>Every Folder has <u>3 notes</u>. You can hide or show these notes from here. <br /> <br />You can also change the folder name from here.  ",
           attachTo: {
             element: ".folder-1 .folder-action",
             on: "right"
@@ -13265,7 +13271,7 @@
           }]
         }), e.addStep({
           id: "add-folder-step",
-          text: "(2/4)<h2>Show / Hide folders</h2>There are total " + COMMONCONSTANTS.TOTAL_FOLDERS + " folders. You can hide them or make them visible from here.",
+          text: "(2/3)<h2>Show / Hide folders</h2>There are total " + COMMONCONSTANTS.TOTAL_FOLDERS + " folders. You can hide them or make them visible from here.",
           attachTo: {
             element: ".folder-switcher",
             on: "bottom"
@@ -13288,32 +13294,8 @@
             }
           }]
         }), e.addStep({
-          id: "add-folder-step",
-          text: "(3/4)<h2> Login, Backup & Upgrade </h2> Add license-key here after purchasing the premium.",
-          attachTo: {
-            element: ".menu-outer-container",
-            on: "left"
-          },
-          classes: "tour-step bottom",
-          buttons: [{
-            text: "Exit",
-            action: function() {
-              return l(COMMONCONSTANTS.TOUR_EXIT, {
-                step: 3
-              }), this.cancel()
-            },
-            secondary: !0
-          }, {
-            text: "Next",
-            action: function() {
-              return l(COMMONCONSTANTS.TOUR_NEXT_STEP, {
-                step: 3
-              }), this.next()
-            }
-          }]
-        }), e.addStep({
           id: "dark-mode-step",
-          text: "(4/4)<h2>Try new themes everyday </h2> Enjoy lots of premium & animated themes.",
+          text: "(3/3)<h2>Try new themes everyday </h2> Enjoy lots of premium & animated themes.",
           attachTo: {
             element: ".tab-item.theme-setting",
             on: "left"
@@ -13323,7 +13305,7 @@
             text: "Finish",
             action: function() {
               return l(COMMONCONSTANTS.TOUR_EXIT, {
-                step: 4
+                step: 3
               }), this.cancel()
             }
           }]
@@ -13701,7 +13683,7 @@
           }, {
             key: "render",
             value: function() {
-              return this.state.show ? t("div", {
+              return true; this.state.show ? t("div", {
                 className: "login-overlay-container"
               }, t("div", {
                 className: "inner-container"
