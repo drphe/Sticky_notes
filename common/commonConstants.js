@@ -1,6 +1,6 @@
 const COMMONCONSTANTS = {
   LICENSE_BUY_URL: "https://www.getstickynotes.com/payment?__from=apps",
-  UNINSTALL_URL: "https://github.com/drphe/Stick_note",
+  UNINSTALL_URL: "https://github.com/drphe/Sticky_notes",
   REVIEWS_URL:
     "https://chrome.google.com/webstore/detail/sticky-notes-just-popped/plpdjbappofmfbgdmhoaabefbobddchk/reviews",
   PROVIDER_CHECK_URL:
