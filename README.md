@@ -9,3 +9,6 @@ Tuy nhiên:
 
 Nên chỉ tải file trực tiếp và load thư mục giải nén thôi.
 
+Cách download: 
+
+Code > Download Zip > Giản nén > Load unpack folder
