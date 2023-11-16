@@ -3,6 +3,7 @@ Init.initSentry();
 Init.initializeEmitter();
 Init.initGoogleAnalytics();
 Init.initAmplitude(currentDate);
+Init.isNewestVesion();
 
 MessageHelper.init();
 
@@ -31,7 +32,6 @@ if(chrome && chrome.runtime && chrome.runtime.onInstalled){
 				ls[COMMONCONSTANTS.AUTH_PAGE_OPEN] ||
 				ls[COMMONCONSTANTS.POPUP_OPEN_COUNT] ||
 				ls.count){
-
 	
 				Init.setUserPropertyAfterInstall();
 				TrackingHelper.logUpdateEvent();
@@ -47,12 +47,6 @@ if(chrome && chrome.runtime && chrome.runtime.onInstalled){
 				if(needMigrationTo10Folders){
 					LocalStorageHelper.migrateFor10Folders(folderValues).then(()=>{
 						TrackingHelper.logMigrationEvent();
-					});
-				}
-
-				if(releaseVersion === 21){
-					chrome.tabs.create({
-						'url': 	COMMONCONSTANTS.EXTENSION_UPDATE_URL_C21
 					});
 				}
 	

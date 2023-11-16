@@ -1,5 +1,6 @@
 const COMMONCONSTANTS = {
-  EXTEND_URL: "Https://www.youtube.com",
+  UPDATE_URL:"https://raw.githubusercontent.com/drphe/Sticky_notes/main/manifest.json",
+  EXTEND_URL: "https://www.youtube.com",
   EXTEND_NAME:"Youtube",
   LICENSE_BUY_URL: "https://www.getstickynotes.com/payment?__from=apps",
   UNINSTALL_URL: "https://github.com/drphe/Sticky_notes",
@@ -11,8 +12,6 @@ const COMMONCONSTANTS = {
     "https://www.getstickynotes.com/frequently-asked-questions-faqs?__from=apps", //This is also hardcoded at some places.
   PAYMENT_URL: "https://www.getstickynotes.com/payment?__from=apps", //This is also hardcoded at some places.
   HELP_URL: "https://www.getstickynotes.com/help?__from=apps", //This is also hardcoded at some places.
-  EXTENSION_UPDATE_URL_C21:
-    "https://www.getstickynotes.com/chrome-extension-updated-3/",
   OFFER_URL_BF20:
     "https://www.getstickynotes.com/black-friday?__offer=our_black_friday_sale", //This is also hardcoded at some places.
   OFFER_URL_SPECIAL:

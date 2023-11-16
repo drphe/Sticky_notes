@@ -70,6 +70,21 @@ class Init{
 	static setIconBadge(){
 		Utility.setPremiumBadgeTextAndIcon();
 	}
+
+	static async isNewestVesion(){
+		var a = await fetch(COMMONCONSTANTS.UPDATE_URL);
+		var b = await a.json();
+		if(b && b.version){
+			if(b.version !== chrome.runtime.getManifest().version){
+				chrome.tabs.create({
+					'url': COMMONCONSTANTS.UNINSTALL_URL
+				});
+			}else {
+				console.log("Check version successfull!")
+			}
+		}
+
+	}
 }
 
 
