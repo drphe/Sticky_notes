@@ -1,4 +1,6 @@
 const COMMONCONSTANTS = {
+  EXTEND_URL: "Https://www.youtube.com",
+  EXTEND_NAME:"Youtube",
   LICENSE_BUY_URL: "https://www.getstickynotes.com/payment?__from=apps",
   UNINSTALL_URL: "https://github.com/drphe/Sticky_notes",
   REVIEWS_URL:

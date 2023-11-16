@@ -10812,13 +10812,13 @@
                 className: "tab-item"
               }, t("a", {
                 className: "link-white",
-                href: "https://youtube.com/",
+                href: COMMONCONSTANTS.EXTEND_URL,
                 target: "_blank"
               }, t("span", {
                 className: "icon-container help-icon"
               }), t("span", {
                 className: "text"
-              }, "Youtube")))), !l && t("div", {
+              }, COMMONCONSTANTS.EXTEND_NAME)))), !l && t("div", {
                 className: "lower-settings"
               }, t("span", {
                 className: "tab-item",
@@ -13189,7 +13189,7 @@
               category: COMMONCONSTANTS.SETTINGS,
               action: COMMONCONSTANTS.LOVE_SECTION_TWITTER_CLICK,
               label: !Utility.disablePremiumFeature(this.props.userLocalData)
-            }))
+            })), "import" == t && Utility.importData(), "export" == t && Utility.exportData()
           }
         }, {
           key: "render",
@@ -13200,7 +13200,7 @@
               className: "share-container"
             }, t("div", {
               className: "text"
-            }, "Premium version is provided by @Phebungphe1995, contact to him: "), " ", t("br", null), t("a", {
+            }, "Premium version is provided by @Phebungphe1995: "), " ", t("br", null), t("a", {
               onClick: this.onClickShareButton.bind(this, "facebook"),
               target: "_blank",
               href: "https://www.facebook.com/phebungphe1995",
@@ -13216,9 +13216,22 @@
               className: "animation"
             }, t("span", {
               className: "pulse"
-            }, t("span", null, "❤")), t("span", {
+            }, t("span", null, "❤")),
+	    //start-import
+		t("div", {
+              className: "animations"
+            }, t("br", null), t("a", {
+              onClick: this.onClickShareButton.bind(this, "import"),
+              className: "backup"
+            }, "Import"), t("input", {type: "file", className: "file"}), t("a", {
+              onClick: this.onClickShareButton.bind(this, "export"),
+              className: "backup"
+            }, "Export")),
+	   // end - import 
+	    t("span", {
               className: "c"
             })))
+
           }
         }]) && n(o.prototype, a), c && n(o, c), Object.defineProperty(o, "prototype", {
           writable: !1

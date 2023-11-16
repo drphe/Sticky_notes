@@ -1,4 +1,39 @@
 class Utility {
+        static exportData() {
+            return chrome.storage.local.get(null, function (items) {
+                const result = JSON.stringify(items);
+                const url = 'data:text/plain;charset=utf-8,' + encodeURIComponent(result);
+                const filename =(new Date()).getTime()+ '-Stickynotes-backup.json';
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            });
+        }
+        static importData() {
+            const fileInput = document.querySelector('.file');
+            fileInput.click();
+            fileInput.addEventListener('change', async () => {
+                const selectedFile = fileInput.files[0];
+                if (selectedFile) {
+                    const reader = new FileReader();
+                    reader.onload = async function(e) {
+                        const jsonContent = e.target.result;
+                        const data = JSON.parse(jsonContent);
+                        if (data) {
+                            chrome.storage.local.set(data, function() {
+                                alert('Successfull import data.');
+                            });
+                        } else {
+                            alert('JSON file is not valid.');
+                        }
+                    };
+                    reader.readAsText(selectedFile);
+                } else {
+                    alert('Please, try again.');
+                }
+            });
+        }
 
 	static getRandomId(){
 		let r = Math.random().toString(36).substring(20);
@@ -201,9 +236,8 @@ class Utility {
 
 		return false;
 	}
-
 	static isExtension(){
-		if(	chrome
+		if(chrome
 		&& chrome.runtime
 		&& chrome.runtime.sendMessage
 		&& chrome.runtime.onMessage
