@@ -9,7 +9,7 @@
   "name": "Sticky Notes 3.5",
   "short_name": "Sticky Notes",
   "offline_enabled": true,
-  "version": "3.5.0.1",
+  "version": "3.5.0.2",
   "description": "Chủ đề động, phông chữ, backup. Ghi chú ngay trong trình duyệt với 1 click!",
   "permissions": ["storage", "identity"],
   "background": {

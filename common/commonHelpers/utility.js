@@ -23,6 +23,7 @@ class Utility {
                         if (data) {
                             chrome.storage.local.set(data, function() {
                                 alert('Successfull import data.');
+				window.close();
                             });
                         } else {
                             alert('JSON file is not valid.');
