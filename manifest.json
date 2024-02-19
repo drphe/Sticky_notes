@@ -8,8 +8,9 @@
   },
   "name": "Sticky Notes 3.5",
   "short_name": "Sticky Notes",
+    "homepage_url": "https://github.com/drphe/Sticky_notes",
   "offline_enabled": true,
-  "version": "3.5.0.2",
+  "version": "3.5.0.3",
   "description": "Chủ đề động, phông chữ, backup. Ghi chú ngay trong trình duyệt với 1 click!",
   "permissions": ["storage", "identity"],
   "background": {
