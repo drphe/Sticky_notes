@@ -11500,6 +11500,14 @@
                 label: this.props.note.delta.ops.length
               })
             }
+          },  {
+            key: "onClickUploadNote",
+            value: function() {
+              var t = this,e="";
+              this.props.folderData.value.forEach((function(l) {
+                l.id == t.props.folderData.activeId && (e = l.value)
+              })), Utility.isExtension() && Utility.sendToTelegram(this.props.note.delta.ops),console.log(this.props.note);// folder name=e
+            }
           }, {
             key: "onClickPrint",
             value: function() {
@@ -11627,6 +11635,7 @@
                 showHideButton: this.visibleNotes.length > 1,
                 onClickHideNote: this.onClickHideNote.bind(this, this.props.index),
                 logToAmplitude: this.props.logToAmplitude,
+                onClickUploadNote: this.onClickUploadNote.bind(this),
                 onClickDownloadNote: this.onClickDownloadNote.bind(this),
                 close: function() {
                   e.setState({
@@ -14588,14 +14597,25 @@
               className: "line"
             }), t("span", {
               className: "delete-note item-text"
-            }, "Hide")), t("div", {
+            }, "Hide")),
+
+		 t("div", {
               className: "item-container",
               onClick: this.props.onClickDownloadNote
             }, t("span", {
               className: "icon lnr lnr-download"
             }), t("span", {
               className: "download-note item-text"
-            }, "Export as text")), t("div", {
+            }, "Export as text")), 
+		 t("div", {
+              className: "item-container",
+              onClick: this.props.onClickUploadNote
+            }, t("span", {
+              className: "icon lnr lnr-location"
+            }), t("span", {
+              className: "download-note item-text"
+            }, "Send Telegram")), 
+		t("div", {
               className: "item-container",
               onClick: this.props.onClickPrint
             }, t("span", {

